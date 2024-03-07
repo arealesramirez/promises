@@ -1,0 +1,21 @@
+const promiseOne = async (delay = 1000, callback = () => {}) => {        
+
+    const delayPromise = ms => new Promise(res => setTimeout(res, ms))
+    await delayPromise(delay)
+  
+    callback()
+  }
+
+function promiseTwo() {
+    return Promise.resolve('Promise 2 result')
+}
+
+
+async function test() {
+    await promiseOne(2000, () => console.log('Promise 1 result'));
+
+    var result = await promiseTwo();
+    console.log(result)
+}
+
+test();
