@@ -18,4 +18,14 @@ async function test() {
     console.log(result)
 }
 
+async function testTwo() {
+    promiseOne(2000, () => console.log('Promise 1 result'));
+
+    var result = await promiseTwo();
+    console.log(result)
+}
+
+
 test();
+
+testTwo();
